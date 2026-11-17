@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Card</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #e9eef2;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      width: 320px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #1f6f8b;
+      color: white;
+      font-size: 32px;
+      line-height: 90px;
+      margin: 0 auto 15px;
+    }
+
+    h2 {
+      margin: 0;
+      color: #14202b;
+    }
+
+    .role {
+      color: #666;
+      margin: 5px 0 15px;
+    }
+
+    .bio {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .stats b {
+      display: block;
+      font-size: 20px;
+    }
+
+    .stats span {
+      font-size: 13px;
+      color: #666;
+    }
+
+    button {
+      background: #1f6f8b;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button.following {
+      background: #3cb371;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="avatar">BP</div>
+    <h2>Bhupendra Jogi</h2>
+    <p class="role">Front-end Developer</p>
+    <p class="bio">I build simple, websites and learning new things.</p>
+
+    <div class="stats">
+      <div><b>42</b><span>Projects</span></div>
+      <div><b id="followers">1280</b><span>Followers</span></div>
+      <div><b>5</b><span>Years</span></div>
+    </div>
+
+    <button id="followBtn">Follow</button>
+  </div>
+
+  <script>
+    var button = document.getElementById("followBtn");
+    var followers = document.getElementById("followers");
+    var count = 1280;
+    var isFollowing = false;
+
+    button.addEventListener("click", function () {
+      isFollowing = !isFollowing;
+
+      if (isFollowing) {
+        count = count + 1;
+        button.textContent = "Following";
+        button.classList.add("following");
+      } else {
+        count = count - 1;
+        button.textContent = "Follow";
+        button.classList.remove("following");
+      }
+
+      followers.textContent = count;
+    });
+  </script>
+
+</body>
+</html>
